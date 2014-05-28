@@ -29,8 +29,9 @@
     <input type="text" id="datepicker" name="date">
     <input type="text" name="schedule">
     <input type="text" name="money"><br>
-    <input type="submit" value="予定を追加">
+    <input type="submit" value="予定を追加"><br>
     </form>
     <hr>
+
 </body>
 </html>
