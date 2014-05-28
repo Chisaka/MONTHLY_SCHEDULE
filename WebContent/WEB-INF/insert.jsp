@@ -31,5 +31,6 @@
     <input type="text" name="money"><br>
     <input type="submit" value="予定を追加">
     </form>
+    <hr>
 </body>
 </html>
