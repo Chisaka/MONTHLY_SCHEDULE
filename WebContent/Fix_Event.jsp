@@ -5,25 +5,32 @@
     <head>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
-<script type="text/javascript">
-$(function(){
-$("#datepicker").datepicker({
-numberOfMonths: 1,
-showButtonPanel: true
-});
-});
-</script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+        rel="stylesheet">
+        <script type="text/javascript">
+            $(function(){
+                $("#datepicker").datepicker({
+                    numberOfMonths: 1,
+                    showButtonPanel: true
+                });
+            });
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Insert title here</title>
+        <title>予定変更画面</title>
     </head>
     <body>
-    <h2>予定を修正</h2>
-    <input type="text" id="datepicker">
-
-    <input type="text" name="event">
-    <input type="text" name="price">
-
+        <h1>予定を修正</h1>
+        <br>
+        <form method="post" class="form-inline">
+            <input type="text" id="datepicker" placeholder="日付"
+                   name="date" size="10" class="form-control" />
+            <input type="text" name="schedule" size="50" class="form-control" />
+            <input type="text" name="money" placeholder="金額" size="10" class="form-control"><br>
+            <br>
+            <p class="text-center"><input type="submit" value="予定を追加"></p><br>
+        </form>
+        <hr>
     </body>
 </html>
