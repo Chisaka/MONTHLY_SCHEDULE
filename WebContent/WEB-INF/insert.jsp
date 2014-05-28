@@ -28,7 +28,7 @@
 <body>
     <H1>予定を追加</H1>
     <br>
-    <form method="post" class="form-inline">
+    <form method="post" action="InsertResult" class="form-inline">
     <input type="text" id="datepicker" placeholder="日付"
            name="date" size="10" class="form-control" />
     <input type="text" name="schedule" placeholder="予定を入力してください"
