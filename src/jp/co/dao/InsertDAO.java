@@ -3,7 +3,6 @@ package jp.co.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -31,7 +30,7 @@ public class InsertDAO {
 
     }
 
-    public ArrayList<Schedule> insetrSchedule(Schedule s){
+    public void insetrSchedule(Schedule s){
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con
                         .prepareStatement("INSERT INTO BOOKSHELF VALUES(?, ?, ?, ?, ?, ?);")) {
@@ -40,7 +39,5 @@ public class InsertDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return
     }
 }
