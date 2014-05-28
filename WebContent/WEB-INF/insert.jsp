@@ -14,6 +14,8 @@
 <link type="text/css"
     href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"
     rel="stylesheet" />
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    rel="stylesheet">
 <script type="text/javascript">
 	$(function() {
 		$("#datepicker").datepicker({
@@ -25,13 +27,16 @@
 </head>
 <body>
     <H1>予定を追加</H1>
-    <form method="post">
-    <input type="text" id="datepicker" name="date">
-    <input type="text" name="schedule">
-    <input type="text" name="money"><br>
-    <input type="submit" value="予定を追加"><br>
+    <br>
+    <form method="post" class="form-inline">
+    <input type="text" id="datepicker" placeholder="日付"
+           name="date" size="10" class="form-control" />
+    <input type="text" name="schedule" placeholder="予定を入力してください"
+           size="50" class="form-control" />
+    <input type="text" name="money" placeholder="金額" size="10" class="form-control"><br>
+    <br>
+    <p class="text-center"><input type="submit" value="予定を追加"></p><br>
     </form>
     <hr>
-
 </body>
 </html>
