@@ -7,8 +7,8 @@
         <title>Insert title here</title>
     </head>
     <body>
-    <h2>予定を変更</h2>
-
+    <h2>予定を修正</h2>
+    <input type="text" name="name">
 
     </body>
 </html>
