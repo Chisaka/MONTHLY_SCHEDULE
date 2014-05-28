@@ -1,6 +1,7 @@
 package jp.co.event;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Fix_Servlet
  */
-@WebServlet("/Fix_Servlet")
-public class Fix_Servlet extends HttpServlet {
+@WebServlet("/FixServlet")
+public class FixServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Fix_Servlet() {
+    public FixServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

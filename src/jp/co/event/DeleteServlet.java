@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Delete_Event
  */
-@WebServlet("/Delete_Servlet")
-public class Delete_Servlet extends HttpServlet {
+@WebServlet("/DeleteServlet")
+public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Delete_Servlet() {
+    public DeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
