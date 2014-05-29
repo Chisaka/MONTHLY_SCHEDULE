@@ -11,6 +11,8 @@
     <body>
         <h1>予定を削除</h1>
 
-        <button type="button" onClick="location.href='Delete'">削除</button>
+        <!-- 削除対象の表示 -->
+
+        <button type="button" onClick="location.href=''">削除</button>
     </body>
 </html>
