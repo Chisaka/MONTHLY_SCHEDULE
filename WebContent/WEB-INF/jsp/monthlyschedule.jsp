@@ -54,11 +54,10 @@
 <td>${schedule.sche}</td>
 <td>${schedule.money}</td>
 <td><button>修正</button></td>
-<td><button>削除</button></td>
+<td><a href="Delete?id=${schedule.id}"><button>削除</button></a></td>
 </tr>
 </c:forEach>
 </table>
-
 <hr>
 <br><br>
 <p class="text-center"><button onclick=location.href='Insert'>予定を追加</button>
