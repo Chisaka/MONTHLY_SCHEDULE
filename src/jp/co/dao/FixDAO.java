@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 import jp.co.model.Schedule;
 
 public class FixDAO {
-    
+
     private DataSource ds;
 
     public FixDAO() {
@@ -34,12 +34,13 @@ public class FixDAO {
     public void FixSchedule(Schedule s){
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con
-                        .prepareStatement(" INTO SCHEDULELIST(YEAR, MONTH, DAY, SCHEDULE, MONEY) VALUES(?, ?, ?, ?, ?);")) {
+                        .prepareStatement(" UPDATE SCHEDULELIST SET year = ?, month = ?, day = ?, schedule = ?, money = ? WHERE id = ?")) {
             ps.setInt(1, s.getYear());
             ps.setInt(2, s.getMonth());
             ps.setInt(3, s.getDay());
             ps.setString(4, s.getSche());
             ps.setInt(5, s.getMoney());
+            ps.setInt(6, s.getID());
 
             ps.execute();
         } catch (SQLException e) {
