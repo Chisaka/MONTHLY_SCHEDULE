@@ -26,18 +26,31 @@ public class InsertDAO {
         }
     }
 
-    public void splitDate(){
-
+    public String[] splitDate(String date){
+        String[] str = date.split("/");
+        return str;
     }
 
-    public void insetrSchedule(Schedule s){
+    public void insertSchedule(Schedule s){
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con
-                        .prepareStatement("INSERT INTO BOOKSHELF VALUES(?, ?, ?, ?, ?, ?);")) {
+                        .prepareStatement("INSERT INTO SCHEDULELIST(YEAR, MONTH, DAY, SCHEDULE, MONEY) VALUES(?, ?, ?, ?, ?);")) {
+            ps.setInt(1, s.getYear());
+            ps.setInt(2, s.getMonth());
+            ps.setInt(3, s.getDay());
+            ps.setString(4, s.getSche());
+            ps.setInt(5, s.getMoney());
 
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String zeroCheck(String money){
+        if(money == ""){
+            money = "0";
+        }
+        return money;
     }
 }

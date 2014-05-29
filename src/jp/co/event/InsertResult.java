@@ -1,7 +1,6 @@
 package jp.co.event;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,12 +38,18 @@ public class InsertResult extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    ArrayList<Schedule> scheduleList = new ArrayList<>();
-
-	    String date = request.getParameter("date");
-	    String schedule = request.getParameter("schedule");
-	    int money = Integer.parseInt(request.getParameter("money"));
+	    Schedule scheduleList = new Schedule();
 	    InsertDAO dao = new InsertDAO();
+
+	    String[] date = dao.splitDate(request.getParameter("date"));
+	    String schedule = request.getParameter("schedule");
+	    int money = Integer.parseInt(dao.zeroCheck(request.getParameter("money")));
+	    scheduleList.setYear(Integer.parseInt(date[0]));
+	    scheduleList.setMonth(Integer.parseInt(date[1]));
+	    scheduleList.setDay(Integer.parseInt(date[2]));
+	    scheduleList.setSche(schedule);
+	    scheduleList.setMoney(money);
+	    dao.insertSchedule(scheduleList);
 	}
 
 }

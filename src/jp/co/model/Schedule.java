@@ -4,19 +4,12 @@ import java.io.Serializable;
 
 public class Schedule implements Serializable {
 
-    private int id = 0;
     private int year = 0;
     private int month = 0;
     private int day = 0;
     private String sche = "";
     private int money = 0;
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
     public int getYear() {
         return year;
     }
