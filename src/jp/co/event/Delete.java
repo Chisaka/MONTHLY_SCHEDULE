@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.model.Schedule;
+
 /**
  * Servlet implementation class Delete
  */
@@ -28,8 +30,19 @@ public class Delete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	       RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/delete.jsp");
-	        dispatcher.forward(request, response);
+	    Schedule sche = new Schedule();
+	    
+	    int id = sche.getID();
+	    int year = sche.getYear();
+	    int month = sche.getMonth();
+	    int day = sche.getDay();
+	    String sches = sche.getSche();
+	    int money = sche.getMoney();
+	    
+	    sche.se
+	    
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/delete.jsp");    
+	    dispatcher.forward(request, response); 
 
 	}
 
