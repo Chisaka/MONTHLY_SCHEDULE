@@ -30,6 +30,7 @@ public class Delete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	       RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/delete.jsp");
 	        dispatcher.forward(request, response);
+
 	}
 
 	/**
