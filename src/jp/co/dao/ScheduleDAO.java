@@ -41,6 +41,7 @@ public class ScheduleDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Schedule schedule = new Schedule();
+                    schedule.setId(rs.getInt("ID"));
                     schedule.setYear(rs.getInt("YEAR"));
                     schedule.setMonth(rs.getInt("MONTH"));
                     schedule.setDay(rs.getInt("DAY"));
