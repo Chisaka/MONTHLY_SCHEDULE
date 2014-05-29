@@ -13,6 +13,6 @@
 
         <!-- 削除対象の表示 -->
 
-        <button type="button" onClick="location.href=''">削除</button>
+        <p class="text-center"><button type="button" onClick="location.href=''">削除</button></p>
     </body>
 </html>
