@@ -41,7 +41,7 @@ public class Delete extends HttpServlet {
 
 	    request.setAttribute("schedule", schedule);
 
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/delete.jsp");
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/delete.jsp");
 	    dispatcher.forward(request, response);
 
 	}

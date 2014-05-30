@@ -41,24 +41,27 @@ for (int i=1; i<=12; i++) {
 </form>
 <table class="table" align="center" border="2">
 <tr>
-<th width="15">日付</th>
-<th width="600">予定</th>
-<th width="25">金額</th>
+<th width="15"><p class="text-center">日付</p></th>
+<th width="600"><p class="text-center">予定</p></th>
+<th width="25"><p class="text-center">金額</p></th>
 <th width="40"><br></th>
 <th width="40"><br></th>
 </tr>
 <c:forEach var="schedule" items="${scheduleList}">
 <tr>
-<td>${schedule.day}</td>
+<td><p class="text-center">${schedule.day}</p></td>
 <td>${schedule.sche}</td>
-<td>${schedule.money}</td>
+<td><p class="text-right">${schedule.money}</p></td>
 <td><a href="Fix?id=${schedule.id}"><button>修正</button></a></td>
 <td><a href="Delete?id=${schedule.id}"><button>削除</button></a></td>
 </tr>
 </c:forEach>
+<caption><b>${year}年${month}月の予定</b></caption>
 </table>
 <hr>
-<br><br>
+<br>
+<p class="text-center"><b>${year}年${month}月の合計${money}円</b></p>
+<br>
 <p class="text-center"><a href="Insert"><button>予定を追加</button></a>
 
 </body>
