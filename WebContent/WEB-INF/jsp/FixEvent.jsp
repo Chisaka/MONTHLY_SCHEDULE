@@ -23,10 +23,13 @@
     <body>
         <h1>予定を修正</h1>
         <br>
-        <form action="FixResult" method="post" class="form-inline">
-            <input type="text" id="datepicker" name="date" size="10" class="form-control" />
-            <input type="text" name="schedule" size="50" class="form-control" />
-            <input type="text" name="money" size="10" class="form-control"><br>
+        <form action="FixResult?id=${schedule.id}" method="post" class="form-inline">
+            <input type="text" id="datepicker" name="date" size="10"
+                   value="${schedule.year}/${schedule.month}/${schedule.day}" class="form-control" />
+            <input type="text" name="schedule" size="50"
+                   value="${schedule.sche}" class="form-control" />
+            <input type="text" name="money" size="10"
+                   value="${schedule.money}" class="form-control"><br>
             <br>
             <p class="text-center"><input type="submit" value="予定を修正"></p><br>
         </form>

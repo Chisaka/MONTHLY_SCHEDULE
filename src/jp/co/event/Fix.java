@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.dao.FixDAO;
+import jp.co.model.Schedule;
+
 /**
  * Servlet implementation class Fix
  */
@@ -28,6 +31,15 @@ public class Fix extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	    FixDAO dao = new FixDAO();
+	    int id = Integer.parseInt(request.getParameter("id"));
+	    Schedule schedule = new Schedule();
+
+	    schedule = dao.getSchedule(id);
+
+	    request.setAttribute("schedule", schedule);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/FixEvent.jsp");
         dispatcher.forward(request, response);
 	}
@@ -36,8 +48,7 @@ public class Fix extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/FixEvent.jsp");
-        dispatcher.forward(request, response);
+
 	}
 
 }
