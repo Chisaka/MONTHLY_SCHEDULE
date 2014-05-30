@@ -39,12 +39,18 @@ public class MonthlySchedule extends HttpServlet {
 	    ArrayList<Schedule> scheduleList = new ArrayList<>();
 	    int year = calendar.get(Calendar.YEAR);
 	    int month = calendar.get(Calendar.MONTH) + 1;
+	    int money = 0;
 
 	    scheduleList = dao.getSchedule(year, month);
+
+	    for(Schedule moneycount:scheduleList){
+	        money += moneycount.getMoney();
+	    }
 
 	    request.setAttribute("scheduleList", scheduleList);
 	    request.setAttribute("year", year);
 	    request.setAttribute("month", month);
+	    request.setAttribute("money", money);
 
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/monthlyschedule.jsp");
         dispatcher.forward(request, response);
@@ -59,12 +65,18 @@ public class MonthlySchedule extends HttpServlet {
         ArrayList<Schedule> scheduleList = new ArrayList<>();
         int year = Integer.parseInt(request.getParameter("year"));
         int month = Integer.parseInt(request.getParameter("month"));
+        int money = 0;
 
         scheduleList = dao.getSchedule(year, month);
+
+        for(Schedule moneycount:scheduleList){
+            money += moneycount.getMoney();
+        }
 
         request.setAttribute("scheduleList", scheduleList);
         request.setAttribute("year", year);
         request.setAttribute("month", month);
+        request.setAttribute("money", money);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/monthlyschedule.jsp");
         dispatcher.forward(request, response);
