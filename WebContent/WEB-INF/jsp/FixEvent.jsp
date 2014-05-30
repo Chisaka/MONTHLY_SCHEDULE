@@ -28,7 +28,7 @@
                    value="${schedule.year}/${schedule.month}/${schedule.day}" class="form-control" />
             <input type="text" name="schedule" size="50"
                    value="${schedule.sche}" class="form-control" />
-            <input type="text" name="money" size="10"
+            <input type="number" name="money" size="10"
                    value="${schedule.money}" class="form-control"><br>
             <br>
             <p class="text-center"><input type="submit" value="予定を修正"></p><br>
