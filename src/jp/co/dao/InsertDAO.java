@@ -26,12 +26,12 @@ public class InsertDAO {
         }
     }
 
-    public String[] splitDate(String date){
+    public String[] splitDate(String date) {
         String[] str = date.split("/");
         return str;
     }
 
-    public void insertSchedule(Schedule s){
+    public void insertSchedule(Schedule s) {
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con
                         .prepareStatement("INSERT INTO SCHEDULELIST(YEAR, MONTH, DAY, SCHEDULE, MONEY) VALUES(?, ?, ?, ?, ?);")) {
@@ -47,8 +47,8 @@ public class InsertDAO {
         }
     }
 
-    public String zeroCheck(String money){
-        if(money == ""){
+    public String zeroCheck(String money) {
+        if (money == "") {
             money = "0";
         }
         return money;

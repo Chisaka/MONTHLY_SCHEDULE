@@ -27,12 +27,12 @@ public class FixDAO {
         }
     }
 
-    public String[] splitDate(String date){
+    public String[] splitDate(String date) {
         String[] str = date.split("/");
         return str;
     }
 
-    public void FixSchedule(Schedule s){
+    public void FixSchedule(Schedule s) {
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con
                         .prepareStatement(" UPDATE SCHEDULELIST SET year = ?, month = ?, day = ?, schedule = ?, money = ? WHERE id = ?")) {
@@ -74,8 +74,8 @@ public class FixDAO {
         return schedule;
     }
 
-    public String zeroCheck(String money){
-        if(money == ""){
+    public String zeroCheck(String money) {
+        if (money == "") {
             money = "0";
         }
         return money;

@@ -17,7 +17,7 @@ import jp.co.model.Schedule;
  */
 @WebServlet("/FixResult")
 public class FixResult extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,25 +27,30 @@ public class FixResult extends HttpServlet {
 
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
 
-	}
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    Schedule scheduleList = new Schedule();
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        Schedule scheduleList = new Schedule();
         FixDAO dao = new FixDAO();
         String result = "変更";
         int id = Integer.parseInt(request.getParameter("id"));
 
         String[] date = dao.splitDate(request.getParameter("date"));
         String schedule = request.getParameter("schedule");
-        int money = Integer.parseInt(dao.zeroCheck(request.getParameter("money")));
+        int money = Integer.parseInt(dao.zeroCheck(request
+                .getParameter("money")));
         scheduleList.setId(id);
         scheduleList.setYear(Integer.parseInt(date[0]));
         scheduleList.setMonth(Integer.parseInt(date[1]));
@@ -56,7 +61,8 @@ public class FixResult extends HttpServlet {
 
         request.setAttribute("result", result);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/Result.jsp");
+        RequestDispatcher dispatcher = request
+                .getRequestDispatcher("WEB-INF/jsp/Result.jsp");
         dispatcher.forward(request, response);
     }
 }

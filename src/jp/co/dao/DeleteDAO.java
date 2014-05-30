@@ -16,7 +16,7 @@ public class DeleteDAO {
 
     private DataSource ds;
 
-    public DeleteDAO(){
+    public DeleteDAO() {
         try {
             Context initialContext = new InitialContext();
             Context envContext = (Context) initialContext
@@ -27,7 +27,7 @@ public class DeleteDAO {
         }
     }
 
-    public void deleteSchedule(int s){
+    public void deleteSchedule(int s) {
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con
                         .prepareStatement("DELETE FROM SCHEDULELIST WHERE ID = ?")) {
