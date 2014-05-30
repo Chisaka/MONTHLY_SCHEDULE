@@ -2,6 +2,7 @@ package jp.co.event;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,7 @@ public class InsertResult extends HttpServlet {
 
 	    String[] date = dao.splitDate(request.getParameter("date"));
 	    String schedule = request.getParameter("schedule");
+	    String result = "追加";
 	    int money = Integer.parseInt(dao.zeroCheck(request.getParameter("money")));
 	    scheduleList.setYear(Integer.parseInt(date[0]));
 	    scheduleList.setMonth(Integer.parseInt(date[1]));
@@ -50,6 +52,12 @@ public class InsertResult extends HttpServlet {
 	    scheduleList.setSche(schedule);
 	    scheduleList.setMoney(money);
 	    dao.insertSchedule(scheduleList);
+
+	    request.setAttribute("result", result);
+
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/Result.jsp");
+        dispatcher.forward(request, response);
+
 	}
 
 }

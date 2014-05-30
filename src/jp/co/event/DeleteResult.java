@@ -2,6 +2,7 @@ package jp.co.event;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.dao.DeleteDAO;
-import jp.co.model.Schedule;
 
 /**
  * Servlet implementation class DeleteResult
@@ -31,20 +31,22 @@ public class DeleteResult extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    Schedule scheduleList = new Schedule();
         DeleteDAO dao = new DeleteDAO();
+        int id = Integer.parseInt(request.getParameter("id"));
+        String result = "削除";
 
-        dao.deleteSchedule(3);
+        dao.deleteSchedule(id);
+        request.setAttribute("result", result);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/Result.jsp");
+        dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    Schedule scheduleList = new Schedule();
-        DeleteDAO dao = new DeleteDAO();
 
-        dao.deleteSchedule(3);
 	}
 
 }

@@ -41,7 +41,7 @@ public class Schedule implements Serializable {
     public void setMoney(int money) {
         this.money = money;
     }
-    public int getID() {
+    public int getId() {
         return id;
     }
     public void setId(int id){
