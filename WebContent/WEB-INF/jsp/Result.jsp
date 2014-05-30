@@ -11,7 +11,7 @@
 <body>
 <H1>確認</H1>
 
-<H2>${result}を確認しました</H2>
+<H2>予定の${result}を確認しました</H2>
 <br>
 <a href="MonthlySchedule"><button>戻る</button></a>
 </body>

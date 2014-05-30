@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import jp.co.dao.ScheduleDAO;
 import jp.co.model.Schedule;
@@ -35,18 +34,17 @@ public class MonthlySchedule extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    HttpSession session = request.getSession(true);
-
-
 	    Calendar calendar = Calendar.getInstance();
 	    ScheduleDAO dao = new ScheduleDAO();
 	    ArrayList<Schedule> scheduleList = new ArrayList<>();
 	    int year = calendar.get(Calendar.YEAR);
-	    int month = calendar.get(Calendar.MONTH);
+	    int month = calendar.get(Calendar.MONTH) + 1;
 
-	    scheduleList = dao.getSchedule(year, month + 1);
+	    scheduleList = dao.getSchedule(year, month);
 
-	    session.setAttribute("scheduleList", scheduleList);
+	    request.setAttribute("scheduleList", scheduleList);
+	    request.setAttribute("year", year);
+	    request.setAttribute("month", month);
 
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/monthlyschedule.jsp");
         dispatcher.forward(request, response);
@@ -57,8 +55,6 @@ public class MonthlySchedule extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    HttpSession session = request.getSession(true);
-
         ScheduleDAO dao = new ScheduleDAO();
         ArrayList<Schedule> scheduleList = new ArrayList<>();
         int year = Integer.parseInt(request.getParameter("year"));
@@ -66,7 +62,9 @@ public class MonthlySchedule extends HttpServlet {
 
         scheduleList = dao.getSchedule(year, month);
 
-        session.setAttribute("scheduleList", scheduleList);
+        request.setAttribute("scheduleList", scheduleList);
+        request.setAttribute("year", year);
+        request.setAttribute("month", month);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/monthlyschedule.jsp");
         dispatcher.forward(request, response);

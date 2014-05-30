@@ -2,6 +2,7 @@ package jp.co.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -40,12 +41,37 @@ public class FixDAO {
             ps.setInt(3, s.getDay());
             ps.setString(4, s.getSche());
             ps.setInt(5, s.getMoney());
-            ps.setInt(6, s.getID());
+            ps.setInt(6, s.getId());
 
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Schedule getSchedule(int id) {
+
+        Schedule schedule = new Schedule();
+        try (Connection con = ds.getConnection();
+                PreparedStatement ps = con
+                        .prepareStatement("SELECT * FROM SCHEDULELIST WHERE ID=?")) {
+
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    schedule.setId(rs.getInt("ID"));
+                    schedule.setYear(rs.getInt("YEAR"));
+                    schedule.setMonth(rs.getInt("MONTH"));
+                    schedule.setDay(rs.getInt("DAY"));
+                    schedule.setSche(rs.getString("SCHEDULE"));
+                    schedule.setMoney(rs.getInt("MONEY"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return schedule;
     }
 
     public String zeroCheck(String money){
