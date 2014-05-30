@@ -13,6 +13,6 @@
 
 <H2>${result}を確認しました</H2>
 <br>
-
+<a href="MonthlySchedule"><button>戻る</button></a>
 </body>
 </html>

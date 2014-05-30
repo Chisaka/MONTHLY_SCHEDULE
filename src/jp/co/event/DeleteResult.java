@@ -46,9 +46,7 @@ public class DeleteResult extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DeleteDAO dao = new DeleteDAO();
 
-        dao.deleteSchedule(3);
 	}
 
 }

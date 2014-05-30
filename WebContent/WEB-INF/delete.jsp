@@ -11,12 +11,14 @@
     <body>
     <H1>予定を削除</H1>
     <br>
+    <form class="form-inline">
     <input type="text" id="datepicker" value="${schedule.day}" disabled="disabled"
            name="date" size="10" class="form-control" />
     <input type="text" name="schedule" value="${schedule.sche}" disabled="disabled"
            size="50" class="form-control" />
     <input type="text" name="money" value="${schedule.money}" disabled="disabled"
            size="10" class="form-control" /><br>
+    </form>
     <br>
     <p class="text-center"><a href="DeleteResult?id=${schedule.id}"><button>予定を削除する</button></a></p><br>
     <hr>
